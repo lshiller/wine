@@ -593,6 +593,46 @@
 				"collection": "users",
 				"filter": "{ \"_id\": \"Meteor.userId()\" }",
 				"find_one": true
+			},
+			{
+				"name": "chemical",
+				"collection": "Chemical",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":chemicalId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "chemicals",
+				"collection": "Chemical",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "chemicals_empty",
+				"collection": "Chemical",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "blend",
+				"collection": "Blend",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":blendId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "blends",
+				"collection": "Blend",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "blends_empty",
+				"collection": "Blend",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
 			}
 		],
 		"public_zone": {
@@ -756,6 +796,168 @@
 					"name": "logout",
 					"template": "logout",
 					"type": "page"
+				},
+				{
+					"name": "chemicals",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Chemicals",
+							"query_name": "chemicals",
+							"text_if_empty": "No chemicals",
+							"insert_route": "chemicals.insert",
+							"details_route": "chemicals.details",
+							"edit_route": "chemicals.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "chemicalId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "chemicalId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Chemical",
+									"query_name": "chemicals_empty",
+									"mode": "insert",
+									"submit_route": "chemicals",
+									"cancel_route": "chemicals",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"chemicalId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "chemical",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "chemicals",
+									"back_route": "chemicals",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"chemicalId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "chemical",
+									"mode": "update",
+									"submit_route": "chemicals",
+									"cancel_route": "chemicals",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "blends",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Blends",
+							"query_name": "blends",
+							"text_if_empty": "No blends",
+							"insert_route": "blends.insert",
+							"details_route": "blends.details",
+							"edit_route": "blends.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "blendId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "blendId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Blend",
+									"query_name": "blends_empty",
+									"mode": "insert",
+									"submit_route": "blends",
+									"cancel_route": "blends",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"blendId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "blend",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "blends",
+									"back_route": "blends",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"blendId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "blend",
+									"mode": "update",
+									"submit_route": "blends",
+									"cancel_route": "blends",
+									"type": "form"
+								}
+							]
+						}
+					]
 				}
 			],
 			"components": [
@@ -768,6 +970,14 @@
 						{
 							"title": "Home",
 							"route": "home_private"
+						},
+						{
+							"title": "Chemicals",
+							"route": "chemicals"
+						},
+						{
+							"title": "Blends",
+							"route": "blends"
 						}
 					]
 				},
