@@ -818,6 +818,86 @@
 				"find_one": true,
 				"filter": "{\n\t\"_id\": null\n}",
 				"options": "{}"
+			},
+			{
+			  "name": "press",
+			  "collection": "Press",
+			  "find_one": true,
+			  "filter": "{\n\t\"_id\": \":pressId\"\n}",
+			  "options": "{}"
+			},
+			{
+			  "name": "presss",
+			  "collection": "Press",
+			  "filter": "{}",
+			  "options": "{}"
+			},
+			{
+			  "name": "presss_empty",
+			  "collection": "Press",
+			  "find_one": true,
+			  "filter": "{\n\t\"_id\": null\n}",
+			  "options": "{}"
+			},
+			{
+			  "name": "tank",
+			  "collection": "Tank",
+			  "find_one": true,
+			  "filter": "{\n\t\"_id\": \":tankId\"\n}",
+			  "options": "{}"
+			},
+			{
+			  "name": "tanks",
+			  "collection": "Tank",
+			  "filter": "{}",
+			  "options": "{}"
+			},
+			{
+			  "name": "tanks_empty",
+			  "collection": "Tank",
+			  "find_one": true,
+			  "filter": "{\n\t\"_id\": null\n}",
+			  "options": "{}"
+			},
+			{
+			  "name": "test",
+			  "collection": "Test",
+			  "find_one": true,
+			  "filter": "{\n\t\"_id\": \":testId\"\n}",
+			  "options": "{}"
+			},
+			{
+			  "name": "tests",
+			  "collection": "Test",
+			  "filter": "{}",
+			  "options": "{}"
+			},
+			{
+			  "name": "tests_empty",
+			  "collection": "Test",
+			  "find_one": true,
+			  "filter": "{\n\t\"_id\": null\n}",
+			  "options": "{}"
+			},
+			{
+			  "name": "barrel",
+			  "collection": "Barrel",
+			  "find_one": true,
+			  "filter": "{\n\t\"_id\": \":barrelId\"\n}",
+			  "options": "{}"
+			},
+			{
+			  "name": "barrels",
+			  "collection": "Barrel",
+			  "filter": "{}",
+			  "options": "{}"
+			},
+			{
+			  "name": "barrels_empty",
+			  "collection": "Barrel",
+			  "find_one": true,
+			  "filter": "{\n\t\"_id\": null\n}",
+			  "options": "{}"
 			}
 		],
 		"public_zone": {
@@ -1791,6 +1871,330 @@
 							]
 						}
 					]
+				},
+				{
+				  "name": "presss",
+				  "type": "page",
+				  "components": [
+				    {
+				      "name": "view",
+				      "title": "Presss",
+				      "query_name": "presss",
+				      "text_if_empty": "No presss",
+				      "insert_route": "presss.insert",
+				      "details_route": "presss.details",
+				      "edit_route": "presss.edit",
+				      "type": "data_view",
+				      "details_route_params": [
+				        {
+				          "name": "pressId",
+				          "value": "this._id"
+				        }
+				      ],
+				      "edit_route_params": [
+				        {
+				          "name": "pressId",
+				          "value": "this._id"
+				        }
+				      ]
+				    }
+				  ],
+				  "pages": [
+				    {
+				      "name": "insert",
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "insert_form",
+				          "title": "New Press",
+				          "query_name": "presss_empty",
+				          "mode": "insert",
+				          "submit_route": "presss",
+				          "cancel_route": "presss",
+				          "type": "form"
+				        }
+				      ]
+				    },
+				    {
+				      "name": "details",
+				      "route_params": [
+				        "pressId"
+				      ],
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "details_form",
+				          "title": "Details",
+				          "query_name": "press",
+				          "mode": "read_only",
+				          "layout": "horizontal",
+				          "close_route": "presss",
+				          "back_route": "presss",
+				          "type": "form"
+				        }
+				      ]
+				    },
+				    {
+				      "name": "edit",
+				      "route_params": [
+				        "pressId"
+				      ],
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "edit_form",
+				          "query_name": "press",
+				          "mode": "update",
+				          "submit_route": "presss",
+				          "cancel_route": "presss",
+				          "type": "form"
+				        }
+				      ]
+				    }
+				  ]
+				},
+				{
+				  "name": "tanks",
+				  "type": "page",
+				  "components": [
+				    {
+				      "name": "view",
+				      "title": "Tanks",
+				      "query_name": "tanks",
+				      "text_if_empty": "No tanks",
+				      "insert_route": "tanks.insert",
+				      "details_route": "tanks.details",
+				      "edit_route": "tanks.edit",
+				      "type": "data_view",
+				      "details_route_params": [
+				        {
+				          "name": "tankId",
+				          "value": "this._id"
+				        }
+				      ],
+				      "edit_route_params": [
+				        {
+				          "name": "tankId",
+				          "value": "this._id"
+				        }
+				      ]
+				    }
+				  ],
+				  "pages": [
+				    {
+				      "name": "insert",
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "insert_form",
+				          "title": "New Tank",
+				          "query_name": "tanks_empty",
+				          "mode": "insert",
+				          "submit_route": "tanks",
+				          "cancel_route": "tanks",
+				          "type": "form"
+				        }
+				      ]
+				    },
+				    {
+				      "name": "details",
+				      "route_params": [
+				        "tankId"
+				      ],
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "details_form",
+				          "title": "Details",
+				          "query_name": "tank",
+				          "mode": "read_only",
+				          "layout": "horizontal",
+				          "close_route": "tanks",
+				          "back_route": "tanks",
+				          "type": "form"
+				        }
+				      ]
+				    },
+				    {
+				      "name": "edit",
+				      "route_params": [
+				        "tankId"
+				      ],
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "edit_form",
+				          "query_name": "tank",
+				          "mode": "update",
+				          "submit_route": "tanks",
+				          "cancel_route": "tanks",
+				          "type": "form"
+				        }
+				      ]
+				    }
+				  ]
+				},
+				{
+				  "name": "ttests",
+				  "type": "page",
+				  "components": [
+				    {
+				      "name": "view",
+				      "title": "Tests",
+				      "query_name": "tests",
+				      "text_if_empty": "No tests",
+				      "insert_route": "ttests.insert",
+				      "details_route": "ttests.details",
+				      "edit_route": "ttests.edit",
+				      "type": "data_view",
+				      "details_route_params": [
+				        {
+				          "name": "testId",
+				          "value": "this._id"
+				        }
+				      ],
+				      "edit_route_params": [
+				        {
+				          "name": "testId",
+				          "value": "this._id"
+				        }
+				      ]
+				    }
+				  ],
+				  "pages": [
+				    {
+				      "name": "insert",
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "insert_form",
+				          "title": "New Test",
+				          "query_name": "tests_empty",
+				          "mode": "insert",
+				          "submit_route": "ttests",
+				          "cancel_route": "ttests",
+				          "type": "form"
+				        }
+				      ]
+				    },
+				    {
+				      "name": "details",
+				      "route_params": [
+				        "testId"
+				      ],
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "details_form",
+				          "title": "Details",
+				          "query_name": "test",
+				          "mode": "read_only",
+				          "layout": "horizontal",
+				          "close_route": "ttests",
+				          "back_route": "ttests",
+				          "type": "form"
+				        }
+				      ]
+				    },
+				    {
+				      "name": "edit",
+				      "route_params": [
+				        "testId"
+				      ],
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "edit_form",
+				          "query_name": "test",
+				          "mode": "update",
+				          "submit_route": "ttests",
+				          "cancel_route": "ttests",
+				          "type": "form"
+				        }
+				      ]
+				    }
+				  ]
+				},
+				{
+				  "name": "barrels",
+				  "type": "page",
+				  "components": [
+				    {
+				      "name": "view",
+				      "title": "Barrels",
+				      "query_name": "barrels",
+				      "text_if_empty": "No barrels",
+				      "insert_route": "barrels.insert",
+				      "details_route": "barrels.details",
+				      "edit_route": "barrels.edit",
+				      "type": "data_view",
+				      "details_route_params": [
+				        {
+				          "name": "barrelId",
+				          "value": "this._id"
+				        }
+				      ],
+				      "edit_route_params": [
+				        {
+				          "name": "barrelId",
+				          "value": "this._id"
+				        }
+				      ]
+				    }
+				  ],
+				  "pages": [
+				    {
+				      "name": "insert",
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "insert_form",
+				          "title": "New Barrel",
+				          "query_name": "barrels_empty",
+				          "mode": "insert",
+				          "submit_route": "barrels",
+				          "cancel_route": "barrels",
+				          "type": "form"
+				        }
+				      ]
+				    },
+				    {
+				      "name": "details",
+				      "route_params": [
+				        "barrelId"
+				      ],
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "details_form",
+				          "title": "Details",
+				          "query_name": "barrel",
+				          "mode": "read_only",
+				          "layout": "horizontal",
+				          "close_route": "barrels",
+				          "back_route": "barrels",
+				          "type": "form"
+				        }
+				      ]
+				    },
+				    {
+				      "name": "edit",
+				      "route_params": [
+				        "barrelId"
+				      ],
+				      "type": "page",
+				      "components": [
+				        {
+				          "name": "edit_form",
+				          "query_name": "barrel",
+				          "mode": "update",
+				          "submit_route": "barrels",
+				          "cancel_route": "barrels",
+				          "type": "form"
+				        }
+				      ]
+				    }
+				  ]
 				}
 			],
 			"components": [
@@ -1846,6 +2250,22 @@
 								{
 									"title": "Pick Number",
 									"route": "picknumbers"
+								},
+								{
+									"title": "Press",
+									"route": "presss"
+								},
+								{
+									"title": "Tank",
+									"route": "tanks"
+								},
+								{
+									"title": "Test",
+									"route": "ttests"
+								},
+								{
+									"title": "Barrel",
+									"route": "barrels"
 								}
 							]
 						}
