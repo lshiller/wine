@@ -28,17 +28,20 @@
 					{
 						"name": "IsCleaningAgent",
 						"title": "Cleaning Agent?",
-						"type": "bool"
+						"type": "bool",
+						"input": "checkbox"
 					},
 					{
 						"name": "IsWineAddition",
 						"title": "Wine Addition?",
-						"type": "bool"
+						"type": "bool",
+						"input": "checkbox"
 					},
 					{
 						"name": "IsLabTest",
 						"title": "Lab Test?",
-						"type": "bool"
+						"type": "bool",
+						"input": "checkbox"
 					}
 				],
 				"type": "collection"
@@ -96,19 +99,26 @@
 						"title": "Chemical Manufacturer",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "chemicalmanufacturers",
+						"lookup_key": "ChemicalManufacturerName",
+						"lookup_field": "ChemicalManufacturerName"
 					},
 					{
 						"name": "Chemical",
 						"title": "Chemical",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "chemicals",
+						"lookup_key": "ChemicalName",
+						"lookup_field": "ChemicalName"
 					},
 					{
 						"name": "Quantity",
 						"type": "float",
-						"required": true
+						"required": true,
+						"title": "Quantity"
 					},
 					{
 						"name": "ReorderLevel",
@@ -139,7 +149,10 @@
 						"title": "Units",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "units",
+						"lookup_key": "UnitName",
+						"lookup_field": "UnitName"
 					},
 					{
 						"name": "ContainerID",
@@ -633,6 +646,66 @@
 				"find_one": true,
 				"filter": "{\n\t\"_id\": null\n}",
 				"options": "{}"
+			},
+			{
+				"name": "chemicalmanufacturer",
+				"collection": "ChemicalManufacturer",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":chemicalmanufacturerId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "chemicalmanufacturers",
+				"collection": "ChemicalManufacturer",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "chemicalmanufacturers_empty",
+				"collection": "ChemicalManufacturer",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxchemicalconainer",
+				"collection": "TrxChemicalContainer",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxchemicalconainerId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxchemicalconainers",
+				"collection": "TrxChemicalContainer",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "trxchemicalconainers_empty",
+				"collection": "TrxChemicalContainer",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "unit",
+				"collection": "Unit",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":unitId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "units",
+				"collection": "Unit",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "units_empty",
+				"collection": "Unit",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
 			}
 		],
 		"public_zone": {
@@ -958,6 +1031,249 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "chemicalmanufacturers",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Chemical Manufacturers",
+							"query_name": "chemicalmanufacturers",
+							"text_if_empty": "No chemicalmanufacturers",
+							"insert_route": "chemicalmanufacturers.insert",
+							"details_route": "chemicalmanufacturers.details",
+							"edit_route": "chemicalmanufacturers.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "chemicalmanufacturerId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "chemicalmanufacturerId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Chemical Manufacturer",
+									"query_name": "chemicalmanufacturers_empty",
+									"mode": "insert",
+									"submit_route": "chemicalmanufacturers",
+									"cancel_route": "chemicalmanufacturers",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"chemicalmanufacturerId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "chemicalmanufacturer",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "chemicalmanufacturers",
+									"back_route": "chemicalmanufacturers",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"chemicalmanufacturerId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "chemicalmanufacturer",
+									"mode": "update",
+									"submit_route": "chemicalmanufacturers",
+									"cancel_route": "chemicalmanufacturers",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trxchemicalconainers",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "TrxChemicalConainers",
+							"query_name": "trxchemicalconainers",
+							"text_if_empty": "No trxchemicalconainers",
+							"insert_route": "trxchemicalconainers.insert",
+							"details_route": "trxchemicalconainers.details",
+							"edit_route": "trxchemicalconainers.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxchemicalconainerId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxchemicalconainerId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Blend",
+									"query_name": "trxchemicalconainers_empty",
+									"mode": "insert",
+									"submit_route": "trxchemicalconainers",
+									"cancel_route": "trxchemicalconainers",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxchemicalconainerId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxchemicalconainer",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxchemicalconainers",
+									"back_route": "trxchemicalconainers",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxchemicalconainerId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxchemicalconainer",
+									"mode": "update",
+									"submit_route": "trxchemicalconainers",
+									"cancel_route": "trxchemicalconainers",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "units",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Units",
+							"query_name": "units",
+							"text_if_empty": "No units",
+							"insert_route": "units.insert",
+							"details_route": "units.details",
+							"edit_route": "units.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "unitId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "unitId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Unit",
+									"query_name": "units_empty",
+									"mode": "insert",
+									"submit_route": "units",
+									"cancel_route": "units",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"unitId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "unit",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "units",
+									"back_route": "units",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"unitId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "unit",
+									"mode": "update",
+									"submit_route": "units",
+									"cancel_route": "units",
+									"type": "form"
+								}
+							]
+						}
+					]
 				}
 			],
 			"components": [
@@ -978,6 +1294,18 @@
 						{
 							"title": "Blends",
 							"route": "blends"
+						},
+						{
+							"title": "Chemical Manufacturer",
+							"route": "chemicalmanufacturers"
+						},
+						{
+							"title": "TRX Chemical Containers",
+							"route": "trxchemicalconainers"
+						},
+						{
+							"title": "Units",
+							"route": "units"
 						}
 					]
 				},
