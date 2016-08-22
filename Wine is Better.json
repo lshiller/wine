@@ -175,25 +175,37 @@
 						"name": "Vintage",
 						"title": "Vintage",
 						"type": "string",
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "vintages",
+						"lookup_key": "VintageName",
+						"lookup_field": "VintageName"
 					},
 					{
 						"name": "Varietal",
 						"title": "Varietal",
 						"type": "string",
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "varietals",
+						"lookup_key": "VarietalName",
+						"lookup_field": "VarietalName"
 					},
 					{
 						"name": "PickLocation",
 						"title": "Pick Location",
 						"type": "string",
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "picklocations",
+						"lookup_key": "PickLocationName",
+						"lookup_field": "PickLocationName"
 					},
 					{
 						"name": "PickNumber",
 						"title": "Pick #",
 						"type": "string",
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "picknumbers",
+						"lookup_key": "PickNumberName",
+						"lookup_field": "PickNumberName"
 					}
 				]
 			},
@@ -219,8 +231,8 @@
 				"type": "collection",
 				"fields": [
 					{
-						"name": "PickLocationName",
-						"title": "Pick Location",
+						"name": "PickNumberName",
+						"title": "Pick Number",
 						"type": "string",
 						"required": true
 					},
@@ -703,6 +715,106 @@
 			{
 				"name": "units_empty",
 				"collection": "Unit",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxlot",
+				"collection": "TrxLot",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxlotId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxlots",
+				"collection": "TrxLot",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "trxlots_empty",
+				"collection": "TrxLot",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "vintage",
+				"collection": "Vintage",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":vintageId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "vintages",
+				"collection": "Vintage",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "vintages_empty",
+				"collection": "Vintage",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "varietal",
+				"collection": "Varietal",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":varietalId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "varietals",
+				"collection": "Varietal",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "varietals_empty",
+				"collection": "Varietal",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "picklocation",
+				"collection": "PickLocation",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":picklocationId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "picklocations",
+				"collection": "PickLocation",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "picklocations_empty",
+				"collection": "PickLocation",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "picknumber",
+				"collection": "PickNumber",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":picknumberId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "picknumbers",
+				"collection": "PickNumber",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "picknumbers_empty",
+				"collection": "PickNumber",
 				"find_one": true,
 				"filter": "{\n\t\"_id\": null\n}",
 				"options": "{}"
@@ -1274,6 +1386,411 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "trxlots",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "TrxLots",
+							"query_name": "trxlots",
+							"text_if_empty": "No trxlots",
+							"insert_route": "trxlots.insert",
+							"details_route": "trxlots.details",
+							"edit_route": "trxlots.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxlotId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxlotId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New TrxLot",
+									"query_name": "trxlots_empty",
+									"mode": "insert",
+									"submit_route": "trxlots",
+									"cancel_route": "trxlots",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxlotId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxlot",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxlots",
+									"back_route": "trxlots",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxlotId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxlot",
+									"mode": "update",
+									"submit_route": "trxlots",
+									"cancel_route": "trxlots",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "vintages",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Vintages",
+							"query_name": "vintages",
+							"text_if_empty": "No vintages",
+							"insert_route": "vintages.insert",
+							"details_route": "vintages.details",
+							"edit_route": "vintages.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "vintageId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "vintageId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Vintage",
+									"query_name": "vintages_empty",
+									"mode": "insert",
+									"submit_route": "vintages",
+									"cancel_route": "vintages",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"vintageId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "vintage",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "vintages",
+									"back_route": "vintages",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"vintageId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "vintage",
+									"mode": "update",
+									"submit_route": "vintages",
+									"cancel_route": "vintages",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "varietals",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Varietals",
+							"query_name": "varietals",
+							"text_if_empty": "No varietals",
+							"insert_route": "varietals.insert",
+							"details_route": "varietals.details",
+							"edit_route": "varietals.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "varietalId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "varietalId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Varietal",
+									"query_name": "varietals_empty",
+									"mode": "insert",
+									"submit_route": "varietals",
+									"cancel_route": "varietals",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"varietalId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "varietal",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "varietals",
+									"back_route": "varietals",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"varietalId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "varietal",
+									"mode": "update",
+									"submit_route": "varietals",
+									"cancel_route": "varietals",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "picklocations",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "PickLocations",
+							"query_name": "picklocations",
+							"text_if_empty": "No picklocations",
+							"insert_route": "picklocations.insert",
+							"details_route": "picklocations.details",
+							"edit_route": "picklocations.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "picklocationId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "picklocationId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New PickLocation",
+									"query_name": "picklocations_empty",
+									"mode": "insert",
+									"submit_route": "picklocations",
+									"cancel_route": "picklocations",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"picklocationId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "picklocation",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "picklocations",
+									"back_route": "picklocations",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"picklocationId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "picklocation",
+									"mode": "update",
+									"submit_route": "picklocations",
+									"cancel_route": "picklocations",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "picknumbers",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "PickNumbers",
+							"query_name": "picknumbers",
+							"text_if_empty": "No picknumbers",
+							"insert_route": "picknumbers.insert",
+							"details_route": "picknumbers.details",
+							"edit_route": "picknumbers.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "picknumberId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "picknumberId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New PickNumber",
+									"query_name": "picknumbers_empty",
+									"mode": "insert",
+									"submit_route": "picknumbers",
+									"cancel_route": "picknumbers",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"picknumberId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "picknumber",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "picknumbers",
+									"back_route": "picknumbers",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"picknumberId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "picknumber",
+									"mode": "update",
+									"submit_route": "picknumbers",
+									"cancel_route": "picknumbers",
+									"type": "form"
+								}
+							]
+						}
+					]
 				}
 			],
 			"components": [
@@ -1284,28 +1801,53 @@
 					"dest_selector": "#menu",
 					"items": [
 						{
-							"title": "Home",
-							"route": "home_private"
-						},
-						{
-							"title": "Chemicals",
-							"route": "chemicals"
-						},
-						{
-							"title": "Blends",
-							"route": "blends"
-						},
-						{
-							"title": "Chemical Manufacturer",
-							"route": "chemicalmanufacturers"
-						},
-						{
-							"title": "TRX Chemical Containers",
-							"route": "trxchemicalconainers"
-						},
-						{
-							"title": "Units",
-							"route": "units"
+							"title": "TRX",
+							"items": [
+								{
+									"title": "Home",
+									"route": "home_private"
+								},
+								{
+									"title": "Chemicals",
+									"route": "chemicals"
+								},
+								{
+									"title": "Blends",
+									"route": "blends"
+								},
+								{
+									"title": "Chemical Manufacturer",
+									"route": "chemicalmanufacturers"
+								},
+								{
+									"title": "TRX Chemical Containers",
+									"route": "trxchemicalconainers"
+								},
+								{
+									"title": "Units",
+									"route": "units"
+								},
+								{
+									"title": "Trx Lots",
+									"route": "trxlots"
+								},
+								{
+									"title": "Vintage",
+									"route": "vintages"
+								},
+								{
+									"title": "Varietal",
+									"route": "varietals"
+								},
+								{
+									"title": "Pick Location",
+									"route": "picklocations"
+								},
+								{
+									"title": "Pick Number",
+									"route": "picknumbers"
+								}
+							]
 						}
 					]
 				},
