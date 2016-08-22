@@ -366,14 +366,20 @@
 						"title": "Tank",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "tanks",
+						"lookup_key": "TankName",
+						"lookup_field": "TankName"
 					},
 					{
 						"name": "Chemical",
 						"title": "Chemical",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "chemicals",
+						"lookup_key": "ChemicalName",
+						"lookup_field": "ChemicalName"
 					},
 					{
 						"name": "QuantityAdded",
@@ -414,27 +420,37 @@
 						"title": "From Barrel",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "barrels",
+						"lookup_key": "BarrelName",
+						"lookup_field": "BarrelName"
 					},
 					{
 						"name": "ToTank",
 						"title": "To Tank",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "tanks",
+						"lookup_key": "TankName",
+						"lookup_field": "TankName"
 					},
 					{
 						"name": "TrxLot",
 						"title": "Lot",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "trxlots",
+						"lookup_key": "LotName",
+						"lookup_field": "LotName"
 					},
 					{
 						"name": "TransferDatetime",
 						"title": "Transfer Datetime",
-						"type": "time",
-						"required": true
+						"type": "date",
+						"required": true,
+						"input": "datepicker"
 					}
 				]
 			},
@@ -447,13 +463,17 @@
 						"title": "Tank Cleaned",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "tanks",
+						"lookup_key": "TankName",
+						"lookup_field": "TankName"
 					},
 					{
 						"name": "CleaningDatetime",
 						"title": "Cleaning Datetime",
-						"type": "time",
-						"required": true
+						"type": "date",
+						"required": true,
+						"input": "datepicker"
 					}
 				]
 			},
@@ -466,14 +486,20 @@
 						"title": "Tank Cleaned",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "tanks",
+						"lookup_key": "TankName",
+						"lookup_field": "TankName"
 					},
 					{
 						"name": "Chemical",
 						"title": "Chemicals used",
 						"type": "string",
 						"required": true,
-						"input": "select-multiple"
+						"input": "select-multiple",
+						"lookup_query_name": "chemicals",
+						"lookup_key": "ChemicalName",
+						"lookup_field": "ChemicalName"
 					}
 				]
 			},
@@ -486,14 +512,20 @@
 						"title": "Tank",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "tanks",
+						"lookup_key": "TankName",
+						"lookup_field": "TankName"
 					},
 					{
 						"name": "Blend",
 						"title": "Blend",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "blends",
+						"lookup_key": "BlendName",
+						"lookup_field": "BlendName"
 					},
 					{
 						"name": "PreFillQuantity",
@@ -518,7 +550,10 @@
 						"title": "Test",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "tests",
+						"lookup_key": "TestName",
+						"lookup_field": "TestName"
 					},
 					{
 						"name": "TestResult",
@@ -544,14 +579,20 @@
 						"title": "From Blend",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "blends",
+						"lookup_key": "BlendName",
+						"lookup_field": "BlendName"
 					},
 					{
 						"name": "ToBlend",
 						"title": "To Blend",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "blends",
+						"lookup_key": "BlendName",
+						"lookup_field": "BlendName"
 					},
 					{
 						"name": "QuantityMoved",
@@ -570,14 +611,20 @@
 						"title": "From Lot",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "trxlots",
+						"lookup_key": "LotName",
+						"lookup_field": "LotName"
 					},
 					{
 						"name": "ToBlend",
 						"title": "To Blend",
 						"type": "string",
 						"required": true,
-						"input": "select"
+						"input": "select",
+						"lookup_query_name": "blends",
+						"lookup_key": "BlendName",
+						"lookup_field": "BlendName"
 					},
 					{
 						"name": "QuantityMoved",
@@ -820,81 +867,241 @@
 				"options": "{}"
 			},
 			{
-			  "name": "press",
-			  "collection": "Press",
+				"name": "press",
+				"collection": "Press",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":pressId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "presss",
+				"collection": "Press",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "presss_empty",
+				"collection": "Press",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "tank",
+				"collection": "Tank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":tankId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "tanks",
+				"collection": "Tank",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "tanks_empty",
+				"collection": "Tank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "test",
+				"collection": "Test",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":testId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "tests",
+				"collection": "Test",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "tests_empty",
+				"collection": "Test",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "barrel",
+				"collection": "Barrel",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":barrelId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "barrels",
+				"collection": "Barrel",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "barrels_empty",
+				"collection": "Barrel",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxaddchemicaltotank",
+				"collection": "TrxAddChemicalToTank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxaddchemicaltotankId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxaddchemicaltotanks",
+				"collection": "TrxAddChemicalToTank",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "trxaddchemicaltotanks_empty",
+				"collection": "TrxAddChemicalToTank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxbarreltotank",
+				"collection": "TrxBarrelToTank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxbarreltotankId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxbarreltotanks",
+				"collection": "TrxBarrelToTank",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "trxbarreltotanks_empty",
+				"collection": "TrxBarrelToTank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxcleantank",
+				"collection": "TrxCleanTank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxcleantankId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxcleantanks",
+				"collection": "TrxCleanTank",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "trxcleantanks_empty",
+				"collection": "TrxCleanTank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxtankcleaningchemical",
+				"collection": "TrxTankCleaningChemical",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxtankcleaningchemicalId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxtankcleaningchemicals",
+				"collection": "TrxTankCleaningChemical",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "trxtankcleaningchemicals_empty",
+				"collection": "TrxTankCleaningChemical",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxfilltank",
+				"collection": "TrxFillTank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxfilltankId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxfilltanks",
+				"collection": "TrxFillTank",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "trxfilltanks_empty",
+				"collection": "TrxFillTank",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxtanktest",
+				"collection": "TrxTankTest",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxtanktestId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxtanktests",
+				"collection": "TrxTankTest",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "trxtanktests_empty",
+				"collection": "TrxTankTest",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxblendtoblend",
+				"collection": "TrxBlendToBlend",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxblendtoblendId\"\n}",
+				"options": "{}"
+			},
+			{
+				"name": "trxblendtoblends",
+				"collection": "TrxBlendToBlend",
+				"filter": "{}",
+				"options": "{}"
+			},
+			{
+				"name": "trxblendtoblends_empty",
+				"collection": "TrxBlendToBlend",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
+			},
+			{
+			  "name": "trxlottoblend",
+			  "collection": "TrxLotToBlend",
 			  "find_one": true,
-			  "filter": "{\n\t\"_id\": \":pressId\"\n}",
+			  "filter": "{\n\t\"_id\": \":trxlottoblendId\"\n}",
 			  "options": "{}"
 			},
 			{
-			  "name": "presss",
-			  "collection": "Press",
+			  "name": "trxlottoblends",
+			  "collection": "TrxLotToBlend",
 			  "filter": "{}",
 			  "options": "{}"
 			},
 			{
-			  "name": "presss_empty",
-			  "collection": "Press",
-			  "find_one": true,
-			  "filter": "{\n\t\"_id\": null\n}",
-			  "options": "{}"
-			},
-			{
-			  "name": "tank",
-			  "collection": "Tank",
-			  "find_one": true,
-			  "filter": "{\n\t\"_id\": \":tankId\"\n}",
-			  "options": "{}"
-			},
-			{
-			  "name": "tanks",
-			  "collection": "Tank",
-			  "filter": "{}",
-			  "options": "{}"
-			},
-			{
-			  "name": "tanks_empty",
-			  "collection": "Tank",
-			  "find_one": true,
-			  "filter": "{\n\t\"_id\": null\n}",
-			  "options": "{}"
-			},
-			{
-			  "name": "test",
-			  "collection": "Test",
-			  "find_one": true,
-			  "filter": "{\n\t\"_id\": \":testId\"\n}",
-			  "options": "{}"
-			},
-			{
-			  "name": "tests",
-			  "collection": "Test",
-			  "filter": "{}",
-			  "options": "{}"
-			},
-			{
-			  "name": "tests_empty",
-			  "collection": "Test",
-			  "find_one": true,
-			  "filter": "{\n\t\"_id\": null\n}",
-			  "options": "{}"
-			},
-			{
-			  "name": "barrel",
-			  "collection": "Barrel",
-			  "find_one": true,
-			  "filter": "{\n\t\"_id\": \":barrelId\"\n}",
-			  "options": "{}"
-			},
-			{
-			  "name": "barrels",
-			  "collection": "Barrel",
-			  "filter": "{}",
-			  "options": "{}"
-			},
-			{
-			  "name": "barrels_empty",
-			  "collection": "Barrel",
+			  "name": "trxlottoblends_empty",
+			  "collection": "TrxLotToBlend",
 			  "find_one": true,
 			  "filter": "{\n\t\"_id\": null\n}",
 			  "options": "{}"
@@ -1873,270 +2080,918 @@
 					]
 				},
 				{
-				  "name": "presss",
-				  "type": "page",
-				  "components": [
-				    {
-				      "name": "view",
-				      "title": "Presss",
-				      "query_name": "presss",
-				      "text_if_empty": "No presss",
-				      "insert_route": "presss.insert",
-				      "details_route": "presss.details",
-				      "edit_route": "presss.edit",
-				      "type": "data_view",
-				      "details_route_params": [
-				        {
-				          "name": "pressId",
-				          "value": "this._id"
-				        }
-				      ],
-				      "edit_route_params": [
-				        {
-				          "name": "pressId",
-				          "value": "this._id"
-				        }
-				      ]
-				    }
-				  ],
-				  "pages": [
-				    {
-				      "name": "insert",
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "insert_form",
-				          "title": "New Press",
-				          "query_name": "presss_empty",
-				          "mode": "insert",
-				          "submit_route": "presss",
-				          "cancel_route": "presss",
-				          "type": "form"
-				        }
-				      ]
-				    },
-				    {
-				      "name": "details",
-				      "route_params": [
-				        "pressId"
-				      ],
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "details_form",
-				          "title": "Details",
-				          "query_name": "press",
-				          "mode": "read_only",
-				          "layout": "horizontal",
-				          "close_route": "presss",
-				          "back_route": "presss",
-				          "type": "form"
-				        }
-				      ]
-				    },
-				    {
-				      "name": "edit",
-				      "route_params": [
-				        "pressId"
-				      ],
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "edit_form",
-				          "query_name": "press",
-				          "mode": "update",
-				          "submit_route": "presss",
-				          "cancel_route": "presss",
-				          "type": "form"
-				        }
-				      ]
-				    }
-				  ]
+					"name": "presss",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Presss",
+							"query_name": "presss",
+							"text_if_empty": "No presss",
+							"insert_route": "presss.insert",
+							"details_route": "presss.details",
+							"edit_route": "presss.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "pressId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "pressId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Press",
+									"query_name": "presss_empty",
+									"mode": "insert",
+									"submit_route": "presss",
+									"cancel_route": "presss",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"pressId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "press",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "presss",
+									"back_route": "presss",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"pressId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "press",
+									"mode": "update",
+									"submit_route": "presss",
+									"cancel_route": "presss",
+									"type": "form"
+								}
+							]
+						}
+					]
 				},
 				{
-				  "name": "tanks",
-				  "type": "page",
-				  "components": [
-				    {
-				      "name": "view",
-				      "title": "Tanks",
-				      "query_name": "tanks",
-				      "text_if_empty": "No tanks",
-				      "insert_route": "tanks.insert",
-				      "details_route": "tanks.details",
-				      "edit_route": "tanks.edit",
-				      "type": "data_view",
-				      "details_route_params": [
-				        {
-				          "name": "tankId",
-				          "value": "this._id"
-				        }
-				      ],
-				      "edit_route_params": [
-				        {
-				          "name": "tankId",
-				          "value": "this._id"
-				        }
-				      ]
-				    }
-				  ],
-				  "pages": [
-				    {
-				      "name": "insert",
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "insert_form",
-				          "title": "New Tank",
-				          "query_name": "tanks_empty",
-				          "mode": "insert",
-				          "submit_route": "tanks",
-				          "cancel_route": "tanks",
-				          "type": "form"
-				        }
-				      ]
-				    },
-				    {
-				      "name": "details",
-				      "route_params": [
-				        "tankId"
-				      ],
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "details_form",
-				          "title": "Details",
-				          "query_name": "tank",
-				          "mode": "read_only",
-				          "layout": "horizontal",
-				          "close_route": "tanks",
-				          "back_route": "tanks",
-				          "type": "form"
-				        }
-				      ]
-				    },
-				    {
-				      "name": "edit",
-				      "route_params": [
-				        "tankId"
-				      ],
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "edit_form",
-				          "query_name": "tank",
-				          "mode": "update",
-				          "submit_route": "tanks",
-				          "cancel_route": "tanks",
-				          "type": "form"
-				        }
-				      ]
-				    }
-				  ]
+					"name": "tanks",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Tanks",
+							"query_name": "tanks",
+							"text_if_empty": "No tanks",
+							"insert_route": "tanks.insert",
+							"details_route": "tanks.details",
+							"edit_route": "tanks.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "tankId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "tankId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Tank",
+									"query_name": "tanks_empty",
+									"mode": "insert",
+									"submit_route": "tanks",
+									"cancel_route": "tanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"tankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "tank",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "tanks",
+									"back_route": "tanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"tankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "tank",
+									"mode": "update",
+									"submit_route": "tanks",
+									"cancel_route": "tanks",
+									"type": "form"
+								}
+							]
+						}
+					]
 				},
 				{
-				  "name": "ttests",
-				  "type": "page",
-				  "components": [
-				    {
-				      "name": "view",
-				      "title": "Tests",
-				      "query_name": "tests",
-				      "text_if_empty": "No tests",
-				      "insert_route": "ttests.insert",
-				      "details_route": "ttests.details",
-				      "edit_route": "ttests.edit",
-				      "type": "data_view",
-				      "details_route_params": [
-				        {
-				          "name": "testId",
-				          "value": "this._id"
-				        }
-				      ],
-				      "edit_route_params": [
-				        {
-				          "name": "testId",
-				          "value": "this._id"
-				        }
-				      ]
-				    }
-				  ],
-				  "pages": [
-				    {
-				      "name": "insert",
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "insert_form",
-				          "title": "New Test",
-				          "query_name": "tests_empty",
-				          "mode": "insert",
-				          "submit_route": "ttests",
-				          "cancel_route": "ttests",
-				          "type": "form"
-				        }
-				      ]
-				    },
-				    {
-				      "name": "details",
-				      "route_params": [
-				        "testId"
-				      ],
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "details_form",
-				          "title": "Details",
-				          "query_name": "test",
-				          "mode": "read_only",
-				          "layout": "horizontal",
-				          "close_route": "ttests",
-				          "back_route": "ttests",
-				          "type": "form"
-				        }
-				      ]
-				    },
-				    {
-				      "name": "edit",
-				      "route_params": [
-				        "testId"
-				      ],
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "edit_form",
-				          "query_name": "test",
-				          "mode": "update",
-				          "submit_route": "ttests",
-				          "cancel_route": "ttests",
-				          "type": "form"
-				        }
-				      ]
-				    }
-				  ]
+					"name": "ttests",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Tests",
+							"query_name": "tests",
+							"text_if_empty": "No tests",
+							"insert_route": "ttests.insert",
+							"details_route": "ttests.details",
+							"edit_route": "ttests.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "testId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "testId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Test",
+									"query_name": "tests_empty",
+									"mode": "insert",
+									"submit_route": "ttests",
+									"cancel_route": "ttests",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"testId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "test",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "ttests",
+									"back_route": "ttests",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"testId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "test",
+									"mode": "update",
+									"submit_route": "ttests",
+									"cancel_route": "ttests",
+									"type": "form"
+								}
+							]
+						}
+					]
 				},
 				{
-				  "name": "barrels",
+					"name": "barrels",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Barrels",
+							"query_name": "barrels",
+							"text_if_empty": "No barrels",
+							"insert_route": "barrels.insert",
+							"details_route": "barrels.details",
+							"edit_route": "barrels.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "barrelId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "barrelId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New Barrel",
+									"query_name": "barrels_empty",
+									"mode": "insert",
+									"submit_route": "barrels",
+									"cancel_route": "barrels",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"barrelId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "barrel",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "barrels",
+									"back_route": "barrels",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"barrelId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "barrel",
+									"mode": "update",
+									"submit_route": "barrels",
+									"cancel_route": "barrels",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trxaddchemicaltotanks",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "TrxAddChemicalToTanks",
+							"query_name": "trxaddchemicaltotanks",
+							"text_if_empty": "No trxaddchemicaltotanks",
+							"insert_route": "trxaddchemicaltotanks.insert",
+							"details_route": "trxaddchemicaltotanks.details",
+							"edit_route": "trxaddchemicaltotanks.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxaddchemicaltotankId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxaddchemicaltotankId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New TrxAddChemicalToTank",
+									"query_name": "trxaddchemicaltotanks_empty",
+									"mode": "insert",
+									"submit_route": "trxaddchemicaltotanks",
+									"cancel_route": "trxaddchemicaltotanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxaddchemicaltotankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxaddchemicaltotank",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxaddchemicaltotanks",
+									"back_route": "trxaddchemicaltotanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxaddchemicaltotankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxaddchemicaltotank",
+									"mode": "update",
+									"submit_route": "trxaddchemicaltotanks",
+									"cancel_route": "trxaddchemicaltotanks",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trxbarreltotanks",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "TrxBarrelToTanks",
+							"query_name": "trxbarreltotanks",
+							"text_if_empty": "No trxbarreltotanks",
+							"insert_route": "trxbarreltotanks.insert",
+							"details_route": "trxbarreltotanks.details",
+							"edit_route": "trxbarreltotanks.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxbarreltotankId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxbarreltotankId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New TrxBarrelToTank",
+									"query_name": "trxbarreltotanks_empty",
+									"mode": "insert",
+									"submit_route": "trxbarreltotanks",
+									"cancel_route": "trxbarreltotanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxbarreltotankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxbarreltotank",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxbarreltotanks",
+									"back_route": "trxbarreltotanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxbarreltotankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxbarreltotank",
+									"mode": "update",
+									"submit_route": "trxbarreltotanks",
+									"cancel_route": "trxbarreltotanks",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trxcleantanks",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "TrxCleanTanks",
+							"query_name": "trxcleantanks",
+							"text_if_empty": "No trxcleantanks",
+							"insert_route": "trxcleantanks.insert",
+							"details_route": "trxcleantanks.details",
+							"edit_route": "trxcleantanks.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxcleantankId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxcleantankId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New TrxCleanTank",
+									"query_name": "trxcleantanks_empty",
+									"mode": "insert",
+									"submit_route": "trxcleantanks",
+									"cancel_route": "trxcleantanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxcleantankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxcleantank",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxcleantanks",
+									"back_route": "trxcleantanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxcleantankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxcleantank",
+									"mode": "update",
+									"submit_route": "trxcleantanks",
+									"cancel_route": "trxcleantanks",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trxtankcleaningchemicals",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "TrxTankCleaningChemicals",
+							"query_name": "trxtankcleaningchemicals",
+							"text_if_empty": "No trxtankcleaningchemicals",
+							"insert_route": "trxtankcleaningchemicals.insert",
+							"details_route": "trxtankcleaningchemicals.details",
+							"edit_route": "trxtankcleaningchemicals.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxtankcleaningchemicalId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxtankcleaningchemicalId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New TrxTankCleaningChemical",
+									"query_name": "trxtankcleaningchemicals_empty",
+									"mode": "insert",
+									"submit_route": "trxtankcleaningchemicals",
+									"cancel_route": "trxtankcleaningchemicals",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxtankcleaningchemicalId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxtankcleaningchemical",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxtankcleaningchemicals",
+									"back_route": "trxtankcleaningchemicals",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxtankcleaningchemicalId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxtankcleaningchemical",
+									"mode": "update",
+									"submit_route": "trxtankcleaningchemicals",
+									"cancel_route": "trxtankcleaningchemicals",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trxfilltanks",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "TrxFillTanks",
+							"query_name": "trxfilltanks",
+							"text_if_empty": "No trxfilltanks",
+							"insert_route": "trxfilltanks.insert",
+							"details_route": "trxfilltanks.details",
+							"edit_route": "trxfilltanks.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxfilltankId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxfilltankId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New TrxFillTank",
+									"query_name": "trxfilltanks_empty",
+									"mode": "insert",
+									"submit_route": "trxfilltanks",
+									"cancel_route": "trxfilltanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxfilltankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxfilltank",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxfilltanks",
+									"back_route": "trxfilltanks",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxfilltankId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxfilltank",
+									"mode": "update",
+									"submit_route": "trxfilltanks",
+									"cancel_route": "trxfilltanks",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trxtanktests",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "TrxTankTests",
+							"query_name": "trxtanktests",
+							"text_if_empty": "No trxtanktests",
+							"insert_route": "trxtanktests.insert",
+							"details_route": "trxtanktests.details",
+							"edit_route": "trxtanktests.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxtanktestId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxtanktestId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New TrxTankTest",
+									"query_name": "trxtanktests_empty",
+									"mode": "insert",
+									"submit_route": "trxtanktests",
+									"cancel_route": "trxtanktests",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxtanktestId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxtanktest",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxtanktests",
+									"back_route": "trxtanktests",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxtanktestId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxtanktest",
+									"mode": "update",
+									"submit_route": "trxtanktests",
+									"cancel_route": "trxtanktests",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trxblendtoblends",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "TrxBlendToBlends",
+							"query_name": "trxblendtoblends",
+							"text_if_empty": "No trxblendtoblends",
+							"insert_route": "trxblendtoblends.insert",
+							"details_route": "trxblendtoblends.details",
+							"edit_route": "trxblendtoblends.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxblendtoblendId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxblendtoblendId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "New TrxBlendToBlend",
+									"query_name": "trxblendtoblends_empty",
+									"mode": "insert",
+									"submit_route": "trxblendtoblends",
+									"cancel_route": "trxblendtoblends",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxblendtoblendId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxblendtoblend",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxblendtoblends",
+									"back_route": "trxblendtoblends",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxblendtoblendId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxblendtoblend",
+									"mode": "update",
+									"submit_route": "trxblendtoblends",
+									"cancel_route": "trxblendtoblends",
+									"type": "form"
+								}
+							]
+						}
+					]
+				},
+				{
+				  "name": "trxlottoblends",
 				  "type": "page",
 				  "components": [
 				    {
 				      "name": "view",
-				      "title": "Barrels",
-				      "query_name": "barrels",
-				      "text_if_empty": "No barrels",
-				      "insert_route": "barrels.insert",
-				      "details_route": "barrels.details",
-				      "edit_route": "barrels.edit",
+				      "title": "TrxLotToBlends",
+				      "query_name": "trxlottoblends",
+				      "text_if_empty": "No trxlottoblends",
+				      "insert_route": "trxlottoblends.insert",
+				      "details_route": "trxlottoblends.details",
+				      "edit_route": "trxlottoblends.edit",
 				      "type": "data_view",
 				      "details_route_params": [
 				        {
-				          "name": "barrelId",
+				          "name": "trxlottoblendId",
 				          "value": "this._id"
 				        }
 				      ],
 				      "edit_route_params": [
 				        {
-				          "name": "barrelId",
+				          "name": "trxlottoblendId",
 				          "value": "this._id"
 				        }
 				      ]
@@ -2149,11 +3004,11 @@
 				      "components": [
 				        {
 				          "name": "insert_form",
-				          "title": "New Barrel",
-				          "query_name": "barrels_empty",
+				          "title": "New TrxLotToBlend",
+				          "query_name": "trxlottoblends_empty",
 				          "mode": "insert",
-				          "submit_route": "barrels",
-				          "cancel_route": "barrels",
+				          "submit_route": "trxlottoblends",
+				          "cancel_route": "trxlottoblends",
 				          "type": "form"
 				        }
 				      ]
@@ -2161,18 +3016,18 @@
 				    {
 				      "name": "details",
 				      "route_params": [
-				        "barrelId"
+				        "trxlottoblendId"
 				      ],
 				      "type": "page",
 				      "components": [
 				        {
 				          "name": "details_form",
 				          "title": "Details",
-				          "query_name": "barrel",
+				          "query_name": "trxlottoblend",
 				          "mode": "read_only",
 				          "layout": "horizontal",
-				          "close_route": "barrels",
-				          "back_route": "barrels",
+				          "close_route": "trxlottoblends",
+				          "back_route": "trxlottoblends",
 				          "type": "form"
 				        }
 				      ]
@@ -2180,16 +3035,16 @@
 				    {
 				      "name": "edit",
 				      "route_params": [
-				        "barrelId"
+				        "trxlottoblendId"
 				      ],
 				      "type": "page",
 				      "components": [
 				        {
 				          "name": "edit_form",
-				          "query_name": "barrel",
+				          "query_name": "trxlottoblend",
 				          "mode": "update",
-				          "submit_route": "barrels",
-				          "cancel_route": "barrels",
+				          "submit_route": "trxlottoblends",
+				          "cancel_route": "trxlottoblends",
 				          "type": "form"
 				        }
 				      ]
@@ -2266,6 +3121,38 @@
 								{
 									"title": "Barrel",
 									"route": "barrels"
+								},
+								{
+									"title": "TrxAddChemicalToTank",
+									"route": "trxaddchemicaltotanks"
+								},
+								{
+									"title": "TrxBarrelToTank",
+									"route": "trxbarreltotanks"
+								},
+								{
+									"title": "TrxCleanTank",
+									"route": "trxcleantanks"
+								},
+								{
+									"title": "TrxTankCleaningChemical",
+									"route": "trxtankcleaningchemicals"
+								},
+								{
+									"title": "TrxFillTank",
+									"route": "trxfilltanks"
+								},
+								{
+									"title": "TrxTankTest",
+									"route": "trxtanktests"
+								},
+								{
+									"title": "TrxBlendToBlend",
+									"route": "trxblendtoblends"
+								},
+								{
+									"title": "TrxLotToBlend",
+									"route": "trxlottoblends"
 								}
 							]
 						}
