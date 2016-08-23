@@ -1,6 +1,6 @@
 {
 	"application": {
-		"title": "Wine is Better",
+		"title": "Clarify Wine Management",
 		"theme": "bootswatch-flatly",
 		"collections": [
 			{
@@ -1087,24 +1087,24 @@
 				"options": "{}"
 			},
 			{
-			  "name": "trxlottoblend",
-			  "collection": "TrxLotToBlend",
-			  "find_one": true,
-			  "filter": "{\n\t\"_id\": \":trxlottoblendId\"\n}",
-			  "options": "{}"
+				"name": "trxlottoblend",
+				"collection": "TrxLotToBlend",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": \":trxlottoblendId\"\n}",
+				"options": "{}"
 			},
 			{
-			  "name": "trxlottoblends",
-			  "collection": "TrxLotToBlend",
-			  "filter": "{}",
-			  "options": "{}"
+				"name": "trxlottoblends",
+				"collection": "TrxLotToBlend",
+				"filter": "{}",
+				"options": "{}"
 			},
 			{
-			  "name": "trxlottoblends_empty",
-			  "collection": "TrxLotToBlend",
-			  "find_one": true,
-			  "filter": "{\n\t\"_id\": null\n}",
-			  "options": "{}"
+				"name": "trxlottoblends_empty",
+				"collection": "TrxLotToBlend",
+				"find_one": true,
+				"filter": "{\n\t\"_id\": null\n}",
+				"options": "{}"
 			}
 		],
 		"public_zone": {
@@ -1115,9 +1115,9 @@
 					"components": [
 						{
 							"name": "home_jumbotron",
-							"title": "Example application",
+							"title": "Welcome to Clarify",
 							"type": "jumbotron",
-							"text": "<b>This <a href=\"https://www.meteor.com\" target=\"_blank\">Meteor</a> application is made with <a href=\"http://www.meteorkitchen.com\" target=\"_blank\">meteor-kitchen</a> without manual coding.</b><br />It demonstrates how to create application with login, register and forgot password functions.<br />Source code (input file for generator) is <a href=\"https://github.com/perak/kitchen-examples/tree/master/example-accounts\" target=\"_blank\">here</a>.",
+							"text": "(c) Larry Shiller All Rights Reserved",
 							"button_title": "Continue &raquo;",
 							"button_route": "login"
 						}
@@ -1518,7 +1518,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "TrxChemicalConainers",
+							"title": "Chemical Containers",
 							"query_name": "trxchemicalconainers",
 							"text_if_empty": "No trxchemicalconainers",
 							"insert_route": "trxchemicalconainers.insert",
@@ -1680,7 +1680,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "TrxLots",
+							"title": "Manage Lots",
 							"query_name": "trxlots",
 							"text_if_empty": "No trxlots",
 							"insert_route": "trxlots.insert",
@@ -1708,7 +1708,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New TrxLot",
+									"title": "New Lot",
 									"query_name": "trxlots_empty",
 									"mode": "insert",
 									"submit_route": "trxlots",
@@ -1923,7 +1923,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "PickLocations",
+							"title": "Pick Locations",
 							"query_name": "picklocations",
 							"text_if_empty": "No picklocations",
 							"insert_route": "picklocations.insert",
@@ -1951,7 +1951,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New PickLocation",
+									"title": "New Pick Location",
 									"query_name": "picklocations_empty",
 									"mode": "insert",
 									"submit_route": "picklocations",
@@ -2004,7 +2004,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "PickNumbers",
+							"title": "Pick Numbers",
 							"query_name": "picknumbers",
 							"text_if_empty": "No picknumbers",
 							"insert_route": "picknumbers.insert",
@@ -2032,7 +2032,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New PickNumber",
+									"title": "New Pick Number",
 									"query_name": "picknumbers_empty",
 									"mode": "insert",
 									"submit_route": "picknumbers",
@@ -2085,7 +2085,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "Presss",
+							"title": "Press",
 							"query_name": "presss",
 							"text_if_empty": "No presss",
 							"insert_route": "presss.insert",
@@ -2409,7 +2409,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "TrxAddChemicalToTanks",
+							"title": "Add Chemical To Tanks",
 							"query_name": "trxaddchemicaltotanks",
 							"text_if_empty": "No trxaddchemicaltotanks",
 							"insert_route": "trxaddchemicaltotanks.insert",
@@ -2437,7 +2437,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New TrxAddChemicalToTank",
+									"title": "Add Chemical To Tank",
 									"query_name": "trxaddchemicaltotanks_empty",
 									"mode": "insert",
 									"submit_route": "trxaddchemicaltotanks",
@@ -2490,7 +2490,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "TrxBarrelToTanks",
+							"title": "Barrel To Tank",
 							"query_name": "trxbarreltotanks",
 							"text_if_empty": "No trxbarreltotanks",
 							"insert_route": "trxbarreltotanks.insert",
@@ -2518,7 +2518,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New TrxBarrelToTank",
+									"title": "New Barrel To Tank",
 									"query_name": "trxbarreltotanks_empty",
 									"mode": "insert",
 									"submit_route": "trxbarreltotanks",
@@ -2571,7 +2571,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "TrxCleanTanks",
+							"title": "Clean Tanks",
 							"query_name": "trxcleantanks",
 							"text_if_empty": "No trxcleantanks",
 							"insert_route": "trxcleantanks.insert",
@@ -2599,7 +2599,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New TrxCleanTank",
+									"title": "New Tank Cleaning",
 									"query_name": "trxcleantanks_empty",
 									"mode": "insert",
 									"submit_route": "trxcleantanks",
@@ -2652,7 +2652,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "TrxTankCleaningChemicals",
+							"title": "Tank Cleaning Chemical",
 							"query_name": "trxtankcleaningchemicals",
 							"text_if_empty": "No trxtankcleaningchemicals",
 							"insert_route": "trxtankcleaningchemicals.insert",
@@ -2680,7 +2680,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New TrxTankCleaningChemical",
+									"title": "New Tank Cleaning Chemical",
 									"query_name": "trxtankcleaningchemicals_empty",
 									"mode": "insert",
 									"submit_route": "trxtankcleaningchemicals",
@@ -2733,7 +2733,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "TrxFillTanks",
+							"title": "Fill Tank",
 							"query_name": "trxfilltanks",
 							"text_if_empty": "No trxfilltanks",
 							"insert_route": "trxfilltanks.insert",
@@ -2761,7 +2761,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New TrxFillTank",
+									"title": "New Tank Filling",
 									"query_name": "trxfilltanks_empty",
 									"mode": "insert",
 									"submit_route": "trxfilltanks",
@@ -2814,7 +2814,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "TrxTankTests",
+							"title": "Tank Test",
 							"query_name": "trxtanktests",
 							"text_if_empty": "No trxtanktests",
 							"insert_route": "trxtanktests.insert",
@@ -2842,7 +2842,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New TrxTankTest",
+									"title": "New Tank Test",
 									"query_name": "trxtanktests_empty",
 									"mode": "insert",
 									"submit_route": "trxtanktests",
@@ -2895,7 +2895,7 @@
 					"components": [
 						{
 							"name": "view",
-							"title": "TrxBlendToBlends",
+							"title": "Blend To Blend",
 							"query_name": "trxblendtoblends",
 							"text_if_empty": "No trxblendtoblends",
 							"insert_route": "trxblendtoblends.insert",
@@ -2923,7 +2923,7 @@
 							"components": [
 								{
 									"name": "insert_form",
-									"title": "New TrxBlendToBlend",
+									"title": "New Blend To Blend",
 									"query_name": "trxblendtoblends_empty",
 									"mode": "insert",
 									"submit_route": "trxblendtoblends",
@@ -2971,85 +2971,85 @@
 					]
 				},
 				{
-				  "name": "trxlottoblends",
-				  "type": "page",
-				  "components": [
-				    {
-				      "name": "view",
-				      "title": "TrxLotToBlends",
-				      "query_name": "trxlottoblends",
-				      "text_if_empty": "No trxlottoblends",
-				      "insert_route": "trxlottoblends.insert",
-				      "details_route": "trxlottoblends.details",
-				      "edit_route": "trxlottoblends.edit",
-				      "type": "data_view",
-				      "details_route_params": [
-				        {
-				          "name": "trxlottoblendId",
-				          "value": "this._id"
-				        }
-				      ],
-				      "edit_route_params": [
-				        {
-				          "name": "trxlottoblendId",
-				          "value": "this._id"
-				        }
-				      ]
-				    }
-				  ],
-				  "pages": [
-				    {
-				      "name": "insert",
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "insert_form",
-				          "title": "New TrxLotToBlend",
-				          "query_name": "trxlottoblends_empty",
-				          "mode": "insert",
-				          "submit_route": "trxlottoblends",
-				          "cancel_route": "trxlottoblends",
-				          "type": "form"
-				        }
-				      ]
-				    },
-				    {
-				      "name": "details",
-				      "route_params": [
-				        "trxlottoblendId"
-				      ],
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "details_form",
-				          "title": "Details",
-				          "query_name": "trxlottoblend",
-				          "mode": "read_only",
-				          "layout": "horizontal",
-				          "close_route": "trxlottoblends",
-				          "back_route": "trxlottoblends",
-				          "type": "form"
-				        }
-				      ]
-				    },
-				    {
-				      "name": "edit",
-				      "route_params": [
-				        "trxlottoblendId"
-				      ],
-				      "type": "page",
-				      "components": [
-				        {
-				          "name": "edit_form",
-				          "query_name": "trxlottoblend",
-				          "mode": "update",
-				          "submit_route": "trxlottoblends",
-				          "cancel_route": "trxlottoblends",
-				          "type": "form"
-				        }
-				      ]
-				    }
-				  ]
+					"name": "trxlottoblends",
+					"type": "page",
+					"components": [
+						{
+							"name": "view",
+							"title": "Lot To Blend",
+							"query_name": "trxlottoblends",
+							"text_if_empty": "No trxlottoblends",
+							"insert_route": "trxlottoblends.insert",
+							"details_route": "trxlottoblends.details",
+							"edit_route": "trxlottoblends.edit",
+							"type": "data_view",
+							"details_route_params": [
+								{
+									"name": "trxlottoblendId",
+									"value": "this._id"
+								}
+							],
+							"edit_route_params": [
+								{
+									"name": "trxlottoblendId",
+									"value": "this._id"
+								}
+							]
+						}
+					],
+					"pages": [
+						{
+							"name": "insert",
+							"type": "page",
+							"components": [
+								{
+									"name": "insert_form",
+									"title": "Lot To Blend",
+									"query_name": "trxlottoblends_empty",
+									"mode": "insert",
+									"submit_route": "trxlottoblends",
+									"cancel_route": "trxlottoblends",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": [
+								"trxlottoblendId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "details_form",
+									"title": "Details",
+									"query_name": "trxlottoblend",
+									"mode": "read_only",
+									"layout": "horizontal",
+									"close_route": "trxlottoblends",
+									"back_route": "trxlottoblends",
+									"type": "form"
+								}
+							]
+						},
+						{
+							"name": "edit",
+							"route_params": [
+								"trxlottoblendId"
+							],
+							"type": "page",
+							"components": [
+								{
+									"name": "edit_form",
+									"query_name": "trxlottoblend",
+									"mode": "update",
+									"submit_route": "trxlottoblends",
+									"cancel_route": "trxlottoblends",
+									"type": "form"
+								}
+							]
+						}
+					]
 				}
 			],
 			"components": [
@@ -3060,99 +3060,104 @@
 					"dest_selector": "#menu",
 					"items": [
 						{
-							"title": "TRX",
+							"title": "Home",
+							"route": "home_private"
+						},
+						{
+							"title": "Resources",
 							"items": [
 								{
-									"title": "Home",
-									"route": "home_private"
-								},
-								{
-									"title": "Chemicals",
-									"route": "chemicals"
+									"title": "Barrels",
+									"route": "barrels"
 								},
 								{
 									"title": "Blends",
 									"route": "blends"
 								},
 								{
-									"title": "Chemical Manufacturer",
+									"title": "Chemicals",
+									"route": "chemicals"
+								},
+								{
+									"title": "Chemical Containers",
+									"route": "trxchemicalconainers"
+								},
+								{
+									"title": "Chemical Manufacturers",
 									"route": "chemicalmanufacturers"
 								},
 								{
-									"title": "TRX Chemical Containers",
-									"route": "trxchemicalconainers"
+									"title": "Pick Locations",
+									"route": "picklocations"
+								},
+								{
+									"title": "Pick Numbers",
+									"route": "picknumbers"
+								},
+								{
+									"title": "Presses",
+									"route": "presss"
+								},
+								{
+									"title": "Tanks",
+									"route": "tanks"
+								},
+								{
+									"title": "Tests",
+									"route": "ttests"
 								},
 								{
 									"title": "Units",
 									"route": "units"
 								},
 								{
-									"title": "Trx Lots",
-									"route": "trxlots"
-								},
-								{
-									"title": "Vintage",
+									"title": "Vintages",
 									"route": "vintages"
 								},
 								{
-									"title": "Varietal",
+									"title": "Varietals",
 									"route": "varietals"
-								},
+								}
+							]
+						},
+						{
+							"title": "Actions",
+							"items": [
 								{
-									"title": "Pick Location",
-									"route": "picklocations"
-								},
-								{
-									"title": "Pick Number",
-									"route": "picknumbers"
-								},
-								{
-									"title": "Press",
-									"route": "presss"
-								},
-								{
-									"title": "Tank",
-									"route": "tanks"
-								},
-								{
-									"title": "Test",
-									"route": "ttests"
-								},
-								{
-									"title": "Barrel",
-									"route": "barrels"
-								},
-								{
-									"title": "TrxAddChemicalToTank",
+									"title": "Add Chemical To Tank",
 									"route": "trxaddchemicaltotanks"
 								},
 								{
-									"title": "TrxBarrelToTank",
+									"title": "Barrel To Tank",
 									"route": "trxbarreltotanks"
 								},
 								{
-									"title": "TrxCleanTank",
-									"route": "trxcleantanks"
-								},
-								{
-									"title": "TrxTankCleaningChemical",
-									"route": "trxtankcleaningchemicals"
-								},
-								{
-									"title": "TrxFillTank",
-									"route": "trxfilltanks"
-								},
-								{
-									"title": "TrxTankTest",
-									"route": "trxtanktests"
-								},
-								{
-									"title": "TrxBlendToBlend",
+									"title": "Blend To Blend",
 									"route": "trxblendtoblends"
 								},
 								{
-									"title": "TrxLotToBlend",
+									"title": "Clean Tank",
+									"route": "trxcleantanks"
+								},
+								{
+									"title": "Fill Tank",
+									"route": "trxfilltanks"
+								},
+								{
+									"title": "Lot To Blend",
 									"route": "trxlottoblends"
+								},
+								{
+									"title": "Manage Lots",
+									"route": "trxlots"
+								},
+								{
+									"title": "Tank Cleaning Chemical",
+									"route": "trxtankcleaningchemicals"
+								},
+								{
+									"title": "Tank Test",
+									"route": "trxtanktests"
 								}
 							]
 						}
@@ -3183,7 +3188,15 @@
 			"type": "zone"
 		},
 		"free_zone": {
-			"type": "zone"
+			"type": "zone",
+			"pages": [
+				{
+					"name": "aboutclarify",
+					"title": "About Clarify",
+					"text": "<p>Welcome to Clarify</p>\n<p>For more information on how your winery can benefit from Clarify please call or text 203-451-6676</p>",
+					"type": "page"
+				}
+			]
 		},
 		"packages": {}
 	}
