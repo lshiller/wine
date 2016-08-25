@@ -1187,11 +1187,95 @@
 					"name": "home_private",
 					"type": "page",
 					"components": [
+            {
+							"name": "Barrels",
+							"class": "dashboard-dimension-display",
+							"query_name": "barrels",
+							"text": "<a href=\"/barrels\" class=\"nav-link\">Barrels</a> &nbsp; <span class=\"badge\">{{ barrels.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "Blends",
+							"class": "dashboard-dimension-display",
+							"query_name": "blends",
+							"text": "<a href=\"/blends\" class=\"nav-link\">Blends</a> &nbsp; <span class=\"badge\">{{ blends.count }}</span>",
+							"type": "div"
+						},
 						{
-							"name": "ChemicalDisplay",
+							"name": "Chemicals",
 							"class": "dashboard-dimension-display",
 							"query_name": "chemicals",
 							"text": "<a href=\"/chemicals\" class=\"nav-link\">Chemicals</a> &nbsp; <span class=\"badge\">{{ chemicals.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "ChemicalContainers",
+							"class": "dashboard-dimension-display",
+							"query_name": "trxchemicalconainers",
+							"text": "<a href=\"/trxchemicalconainers\" class=\"nav-link\">Chemical Containers</a> &nbsp; <span class=\"badge\">{{ trxchemicalconainers.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "ChemicalManufacturers",
+							"class": "dashboard-dimension-display",
+							"query_name": "chemicalmanufacturers",
+							"text": "<a href=\"/chemicalmanufacturers\" class=\"nav-link\">Chemical Manufacturers</a> &nbsp; <span class=\"badge\">{{ chemicalmanufacturers.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "PickLocations",
+							"class": "dashboard-dimension-display",
+							"query_name": "picklocations",
+							"text": "<a href=\"/picklocations\" class=\"nav-link\">Pick Locations</a> &nbsp; <span class=\"badge\">{{ picklocations.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "PickNumbers",
+							"class": "dashboard-dimension-display",
+							"query_name": "picknumbers",
+							"text": "<a href=\"/picknumbers\" class=\"nav-link\">Pick Numbers</a> &nbsp; <span class=\"badge\">{{ picknumbers.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "Presses",
+							"class": "dashboard-dimension-display",
+							"query_name": "presss",
+							"text": "<a href=\"/presss\" class=\"nav-link\">Presses</a> &nbsp; <span class=\"badge\">{{ presss.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "Tanks",
+							"class": "dashboard-dimension-display",
+							"query_name": "tanks",
+							"text": "<a href=\"/tanks\" class=\"nav-link\">Tanks</a> &nbsp; <span class=\"badge\">{{ tanks.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "Tests",
+							"class": "dashboard-dimension-display",
+							"query_name": "tests",
+							"text": "<a href=\"/ttests\" class=\"nav-link\">Tests</a> &nbsp; <span class=\"badge\">{{ tests.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "Units",
+							"class": "dashboard-dimension-display",
+							"query_name": "units",
+							"text": "<a href=\"/units\" class=\"nav-link\">Units</a> &nbsp; <span class=\"badge\">{{ units.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "Vintages",
+							"class": "dashboard-dimension-display",
+							"query_name": "vintages",
+							"text": "<a href=\"/vintages\" class=\"nav-link\">Vintages</a> &nbsp; <span class=\"badge\">{{ vintages.count }}</span>",
+							"type": "div"
+						},
+            {
+							"name": "Varietals",
+							"class": "dashboard-dimension-display",
+							"query_name": "varietals",
+							"text": "<a href=\"/varietals\" class=\"nav-link\">Varietals</a> &nbsp; <span class=\"badge\">{{ varietals.count }}</span>",
 							"type": "div"
 						},
 						{
