@@ -1185,8 +1185,21 @@
 			"pages": [
 				{
 					"name": "home_private",
-					"title": "Welcome {{userFullName}}!",
-					"type": "page"
+					"type": "page",
+					"components": [
+						{
+							"name": "ChemicalDisplay",
+							"class": "dashboard-dimension-display",
+							"query_name": "chemicals",
+							"text": "<a href=\"/chemicals\" class=\"nav-link\">Chemicals</a> &nbsp; <span class=\"badge\">{{ chemicals.count }}</span>",
+							"type": "div"
+						},
+						{
+							"name": "stylesheet",
+							"html": "<style>\n  .dashboard-dimension-display {\n   \tbackground: silver;\n\tborder-radius: 10px;\n\tpadding: 10px;\n\tmargin: 5px;\n  }\n\t.dashboard-dimension-display .nav-link {\n\t\tmargin-right:40px;\n\t\tmargin-top: 0px;\n\t\tpadding: 5px;\n\t\tfont-size: large;\n\t\tbackground: rgba(255,255,255,.8);\n\t\tcolor: blue;\n\t\tborder-radius: 10px;\n\t}\n</style>",
+							"type": "custom_component"
+						}
+					]
 				},
 				{
 					"name": "user_settings",
